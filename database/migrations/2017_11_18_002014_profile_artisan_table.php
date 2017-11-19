@@ -11,6 +11,7 @@ class ProfileArtisanTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('artisan', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom');
