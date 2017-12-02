@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Service;
@@ -9,6 +10,9 @@ use App\Customer;
 
 class Review extends Model
 {
+     use softDeletes;
+
+    protected $dates = ['deleted_at'];
 	
 	const APPROVED = '1';
     const UNAPPROVED = '0';

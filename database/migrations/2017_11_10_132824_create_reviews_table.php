@@ -21,7 +21,7 @@ class CreateReviewsTable extends Migration
             $table->text('comment');
             $table->string('approved')->default(Review::UNRATING);
             $table->timestamps();
-
+            $table->softDeletes();
 
             $table->foreign('customer_id')->references('id')->on('users');
             $table->foreign('service_id')->references('id')->on('services');

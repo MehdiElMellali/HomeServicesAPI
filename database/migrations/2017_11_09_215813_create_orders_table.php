@@ -18,7 +18,8 @@ class CreateOrdersTable extends Migration
             $table->integer('customer_id')->unsigned();
             $table->integer('service_id')->unsigned();
             $table->timestamps();
-
+            $table->softDeletes();
+            
             $table->foreign('customer_id')->references('id')->on('users');
             $table->foreign('service_id')->references('id')->on('services');
         });

@@ -24,6 +24,7 @@ class ProfileArtisanTable extends Migration
             $table->integer('service_id')->unsigned();
             $table->foreign('service_id')->references('id')->on('services');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
     /**

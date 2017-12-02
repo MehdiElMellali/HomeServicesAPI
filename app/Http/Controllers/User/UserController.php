@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\User;
+use App\Mail\userCreated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\ApiController;
 
 class UserController extends ApiController
@@ -36,7 +38,7 @@ class UserController extends ApiController
         $data =  $request->all();
         $data['password'] = bcrypt($request->password);
         $data['verified'] = User::UNVERIFIED_USER;
-        $data['verification_token'] = User::generateVerificationCode();
+        $data['verificatoin_token'] = User::generateVerificationCode();
         $data['admin'] = User::REGULAR_USER;
 
         $user = User::create($data);
@@ -52,10 +54,9 @@ class UserController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $user  =  User::findOrFail($id);
-        return $this->showOne($users);
+        return $this->showOne($user);
     }
 
 
@@ -67,9 +68,8 @@ class UserController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,User $user)
     {
-        $user  =  User::findOrFail($id);
         $rules = [
             'email' => 'email|unique:users,email,' . $user->id,
             'password' => 'min:6|confirmed',
@@ -113,10 +113,30 @@ class UserController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        $user  =  User::findOrFail($id);
         $user->delete();
         return $this->showOne($user);
+    }
+    public function verify($token)
+    {
+        $user = User::where('verificatoin_token',$token)->firstOrFail();
+        $user->verified = User::VERIFIED_USER;
+        $user->verificatoin_token = null;
+        $user->save();
+        return $this->showMessage('The account has been virefied succesfully');
+
+    }
+    public function resend(User $user){
+        if($user->isVerified())
+        {
+            return $this->errorResponse('This User is aready verify',409);
+        }
+        
+        etry(5,function() use($user){
+            Mail::to($user)->send(new userCreated($user));
+    },100);
+
+        return $this->showMessage('The verification email has been resend');
     }
 }

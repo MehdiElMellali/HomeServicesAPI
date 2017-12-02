@@ -17,16 +17,28 @@ use Illuminate\Http\Request;
  * Customer
  */
 Route::resource('customers', 'Customer\CustomerController',['only' =>['index','show']]);
+Route::resource('customers.services', 'Customer\CustomerServiceController',['only' =>['index']]);
+Route::resource('customers.orders', 'Customer\CustomerOrderController',['only' =>['index']]);
 
 /**
  * Services
  */
-Route::resource('services', 'Service\ServiceController',['only' =>['index','show']]);
+Route::resource('services', 'Service\ServiceController',['except' =>['create','edit']]);
+Route::resource('services.orders', 'Service\ServiceOrderController',['only' =>['index']]);
+Route::resource('services.customers', 'Service\ServiceCustomerController',['only' =>['index']]);
+Route::resource('services.customers.orders', 'Service\ServiceCustomerOrderController',['only' =>['store']]);
+
+/**
+ * Order
+ */
+Route::resource('orders', 'Order\OrderController',['only' =>['index','show']]);
 
 /**
  * Users
  */
 Route::resource('users', 'User\UserController',['except' =>['create','edit']]);
+Route::name('verify')->get('users/verify/{token}','User\UserController@verify');
+Route::name('resend')->get('users/{user}/resend','User\UserController@resend');
 
 /**
  * Reviews

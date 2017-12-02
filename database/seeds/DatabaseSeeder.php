@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
 
         $userQunatity = 200;
         $serviceQunatity = 30;
-        $orderQunatity = 1000;
+        $orderQunatity = 100;
         $reviewQunatity = 200;
 
         factory(User::class,$userQunatity)->create();

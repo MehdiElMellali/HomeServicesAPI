@@ -25,9 +25,9 @@ class CustomerController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Customer $customer)
     {
-        $customer = Customer::has('orders')->findOrFail($id);
+        //$customer = Customer::has('orders')->findOrFail($id);
         return $this->showOne($customer);
         //return response()->json(['data' => $customer],200);
     }
