@@ -1,0 +1,393 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "streamline-small";
+  src:url("fonts/streamline-small.eot");
+  src:url("fonts/streamline-small.eot?#iefix") format("embedded-opentype"),
+    url("fonts/streamline-small.woff") format("woff"),
+    url("fonts/streamline-small.ttf") format("truetype"),
+    url("fonts/streamline-small.svg#streamline-small") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "streamline-small" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  vertical-align: middle;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="sl-small-"]:before,
+[class*=" sl-small-"]:before {
+  font-family: "streamline-small" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  vertical-align: middle;
+  speak: none;
+  line-height: 1;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sl-small-helmet:before {
+  content: "a";
+  height: 48px;
+  line-height: 46px;
+}
+.sl-small-wallet:before {
+  content: "b";
+  height: 48px;
+  line-height: 52px;
+}
+.sl-small-roller:before {
+  content: "c";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-driller:before {
+  content: "d";
+  height: 48px;
+  line-height: 38px;
+}
+.sl-small-bubble-check:before {
+  content: "e";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-shield:before {
+  content: "f";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-truck:before {
+  content: "g";
+  height: 48px;
+  line-height: 34px;
+}
+.sl-small-house-1:before {
+  content: "h";
+  height: 48px;
+  line-height: 38px;
+}
+.sl-small-eco:before {
+  content: "i";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-garage:before {
+  content: "j";
+  height: 48px;
+  line-height: 38px;
+}
+.sl-small-conversation:before {
+  content: "k";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-phone:before {
+  content: "l";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-location:before {
+  content: "m";
+  height: 48px;
+  line-height: 52px;
+}
+.sl-small-mail:before {
+  content: "n";
+  height: 48px;
+  line-height: 38px;
+}
+.sl-small-wrench:before {
+  content: "o";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-measure:before {
+  content: "p";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-bucket:before {
+  content: "q";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-globe:before {
+  content: "r";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-house-2:before {
+  content: "s";
+  height: 48px;
+  line-height: 44px;
+}
+.sl-small-briefcase:before {
+  content: "t";
+  height: 48px;
+  line-height: 38px;
+}
+.sl-small-quote:before {
+  content: "u";
+  height: 48px;
+  line-height: 52px;
+}
+.sl-small-clock:before {
+  content: "v";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-fax:before {
+  content: "w";
+  height: 48px;
+  line-height: 44px;
+}
+.sl-small-key:before {
+  content: "x";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-pencil:before {
+  content: "y";
+  height: 48px;
+  line-height: 44px;
+}
+.sl-small-hammer:before {
+  content: "z";
+  height: 48px;
+  line-height: 46px;
+}
+.sl-small-wrenches:before {
+  content: "A";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-screwdriver:before {
+  content: "B";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-ruler:before {
+  content: "C";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-stationery:before {
+  content: "D";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-faq:before {
+  content: "E";
+  height: 48px;
+  line-height: 44px;
+}
+.sl-small-bubble:before {
+  content: "F";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-person:before {
+  content: "G";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-team:before {
+  content: "H";
+  height: 48px;
+  line-height: 38px;
+}
+.sl-small-camera:before {
+  content: "I";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-picture:before {
+  content: "J";
+  height: 48px;
+  line-height: 44px;
+}
+.sl-small-cart-1:before {
+  content: "K";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-cart-2:before {
+  content: "L";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-photo:before {
+  content: "M";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-video:before {
+  content: "N";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-speaker:before {
+  content: "O";
+  height: 48px;
+  line-height: 50px;
+}
+.sl-small-lock:before {
+  content: "P";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-trophy:before {
+  content: "Q";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-chat:before {
+  content: "R";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-list:before {
+  content: "S";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-poster:before {
+  content: "T";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-documents:before {
+  content: "U";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-forklift:before {
+  content: "V";
+  height: 48px;
+  line-height: 38px;
+}
+.sl-small-building:before {
+  content: "W";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-fence:before {
+  content: "X";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-lab:before {
+  content: "Y";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-watering-can:before {
+  content: "Z";
+  height: 48px;
+  line-height: 40px;
+}
+.sl-small-trowel:before {
+  content: "0";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-shovel:before {
+  content: "1";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-cone:before {
+  content: "2";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-lightbulb:before {
+  content: "3";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-door:before {
+  content: "4";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-bricks:before {
+  content: "5";
+  height: 48px;
+  line-height: 34px;
+}
+.sl-small-brush-1:before {
+  content: "6";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-brush-2:before {
+  content: "7";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-percent:before {
+  content: "8";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-gears:before {
+  content: "9";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-tick:before {
+  content: "!";
+  height: 48px;
+  line-height: 42px;
+}
+.sl-small-plan:before {
+  content: "@";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-megaphone:before {
+  content: "#";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-calculator:before {
+  content: "$";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-trolley:before {
+  content: "%";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-payment:before {
+  content: "^";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-construction:before {
+  content: "&";
+  height: 48px;
+  line-height: 48px;
+}
+.sl-small-scissors:before {
+  content: "*";
+  height: 48px;
+  line-height: 48px;
+}
