@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers\Service;
 
-use App\Customer;
-use App\Http\Controllers\ApiController;
 use App\Order;
 use App\Service;
+use App\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Transformers\OrderTransformer;
+use App\Http\Controllers\ApiController;
 
 class ServiceCustomerOrderController extends ApiController
 {
 
+    public function __construct(){
+        parent::__construct();
+        $this->middleware('transform.input:'.OrderTransformer::class)->only(['store']);
+    }
     /**
      * Store a newly created resource in storage.
      *

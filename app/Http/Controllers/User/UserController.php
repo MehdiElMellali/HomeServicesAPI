@@ -6,10 +6,17 @@ use App\User;
 use App\Mail\userCreated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Transformers\UserTransformer;
 use App\Http\Controllers\ApiController;
 
 class UserController extends ApiController
 {
+
+    public function __construct(){
+        parent::__construct();
+        $this->middleware('transform.input:'.UserTransformer::class)->only(['store','update']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -133,7 +140,7 @@ class UserController extends ApiController
             return $this->errorResponse('This User is aready verify',409);
         }
         
-        etry(5,function() use($user){
+        retry(5,function() use($user){
             Mail::to($user)->send(new userCreated($user));
     },100);
 

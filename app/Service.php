@@ -2,17 +2,18 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Model;
-use App\Review;
 use App\Order;
+use App\Review;
+use Illuminate\Database\Eloquent\Model;
+use App\Transformers\ServiceTransformer;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Service extends Model
 {
      use softDeletes;
 
     protected $dates = ['deleted_at'];
-
+    public $transformer = ServiceTransformer::class;
 	protected $fillable = [
         'title','description','images'
     ];

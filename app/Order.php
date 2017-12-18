@@ -2,12 +2,13 @@
 
 namespace App;
 
+use App\User;
+use App\Review;
+use App\Service;
+use App\Customer;
+use App\Transformers\OrderTransformer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\User;
-use App\Service;
-use App\Review;
-use App\Customer;
 
 class Order extends Model
 {
@@ -17,6 +18,8 @@ class Order extends Model
         'customer_id','service_id'
     ];
 
+    public $transformer = OrderTransformer::class;
+    
     protected $dates = ['deleted_at'];
 
 	public function customer()
