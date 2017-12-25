@@ -13,7 +13,8 @@ class UserController extends ApiController
 {
 
     public function __construct(){
-        parent::__construct();
+        //parent::__construct();
+        $this->middleware('client.credentails')->only(['store','resend']);
         $this->middleware('transform.input:'.UserTransformer::class)->only(['store','update']);
     }
 
