@@ -20,4 +20,5 @@ Route::view('/design_build','design_build');
 Route::view('/tiling_painting','tiling_painting');
 Route::view('/paver_walkways','paver_walkways');
 Route::view('/solar_systems','solar_systems');
+Route::view('/contact','contact');
 

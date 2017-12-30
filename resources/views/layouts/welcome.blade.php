@@ -268,7 +268,7 @@
 										</a>
 									</li>
 									<li class="left-flyout">
-										<a href="contact.html" title="Contact">
+										<a href="{{ url('contact') }}" title="Contact">
 											CONTACT
 										</a>
 										<ul>
