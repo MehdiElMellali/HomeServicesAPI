@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('Home');
 });
+Route::view('/services','services');
+Route::view('/interior_renovation','interior_renovation');
+Route::view('/design_build','design_build');
+Route::view('/tiling_painting','tiling_painting');
+Route::view('/paver_walkways','paver_walkways');
+Route::view('/solar_systems','solar_systems');
+

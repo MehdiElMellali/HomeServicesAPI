@@ -99,37 +99,38 @@
 										</ul>
 									</li>
 									<li>
-										<a href="services.html" title="Services">
+										<a href="{{ url('services') }}" title="Services">
 											SERVICES
 										</a>
 										<ul>
 											<li>
-												<a href="service_interior_renovation.html" title="Interior Renovation">
+												<a href="{{ url('interior_renovation') }}" title="Interior Renovation">
 													Interior Renovation
 												</a>
 											</li>
 											<li>
-												<a href="service_design_build.html" title="Design and Build">
+
+												<a href="{{ url('design_build') }}" title="Design and Build">
 													Design and Build
 												</a>
 											</li>
 											<li>
-												<a href="service_tiling_painting.html" title="Design and Build">
+												<a href="{{ url('tiling_painting') }}" title="Design and Build">
 													Tiling and Painting
 												</a>
 											</li>
 											<li>
-												<a href="service_paver_walkways.html" title="Paver Walkways">
+												<a href="{{ url('paver_walkways') }}" title="Paver Walkways">
 													Paver Walkways
 												</a>
 											</li>
 											<li>
-												<a href="service_household_repairs.html" title="Household Repairs">
+												<a href="{{ url('tiling-painting') }}" title="Household Repairs">
 													Household Repairs
 												</a>
 											</li>
 											<li>
-												<a href="service_solar_systems.html" title="Solar Systems">
+												<a href="{{ url('solar_systems') }}" title="Solar Systems">
 													Solar Systems
 												</a>
 											</li>
@@ -504,7 +505,36 @@
 					</div>
 				</div>
 			</div>
+			
 			@yield('content')
+			<div class="row yellow full-width padding-top-bottom-30">
+				<div class="row">
+					<div class="column column-1-3">
+						<ul class="contact-details-list">
+							<li class="sl-small-phone">
+								<p>Phone:<br>
+								+149 75 23 222 35</p>
+							</li>
+						</ul>
+					</div>
+					<div class="column column-1-3">
+						<ul class="contact-details-list">
+							<li class="sl-small-location">
+								<p>272 Linden Avenue<br>
+								Winter Park, FL 32789</p>
+							</li>
+						</ul>
+					</div>
+					<div class="column column-1-3">
+						<ul class="contact-details-list">
+							<li class="sl-small-mail">
+								<p>E-mail:<br>
+								<a href="mailto:kevin.smith@connect.com">renovate@mail.com</a></p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 			<div class="row gray full-width page-padding-top padding-bottom-50">
 				<div class="row row-4-4">
 					<div class="column column-1-4">
