@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Service;
 
+<<<<<<< HEAD
 use App\Http\Controllers\ApiController;
 use App\Service;
 use Illuminate\Http\Request;
@@ -9,6 +10,23 @@ use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends ApiController
 {
+=======
+use App\Service;
+use Illuminate\Http\Request;
+use App\Http\Controllers\ApiController;
+use Illuminate\Support\Facades\Storage;
+use App\Transformers\ServiceTransformer;
+
+class ServiceController extends ApiController
+{
+
+
+    public function __construct(){
+        parent::__construct();
+        $this->middleware('transform.input:'.ServiceTransformer::class)->only(['store','update']);
+    }
+
+>>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
     /**
      * Display a listing of the resource.
      *

@@ -11,6 +11,7 @@
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('Home');
 });
@@ -22,3 +23,27 @@ Route::view('/paver_walkways','paver_walkways');
 Route::view('/solar_systems','solar_systems');
 Route::view('/contact','contact');
 
+=======
+
+// Authentication Routes...
+$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('login', 'Auth\LoginController@login');
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Password Reset Routes...
+$this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
+
+
+
+Route::get('/', function () {
+    return view('welcome');
+})->middleware('guest');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+>>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b

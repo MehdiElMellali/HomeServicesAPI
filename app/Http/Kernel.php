@@ -2,6 +2,10 @@
 
 namespace App\Http;
 
+<<<<<<< HEAD
+=======
+use App\Http\Middleware\TransformInput;
+>>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -60,5 +64,9 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \App\Http\Middleware\CustomThrottleRequests::class,
         'signature' => \App\Http\Middleware\SignatureMiddleware::class,
+<<<<<<< HEAD
+=======
+        'transform.input' => \App\Http\Middleware\TransformInput::class,
+>>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
     ];
 }
