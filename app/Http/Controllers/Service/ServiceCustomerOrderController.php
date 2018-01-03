@@ -17,7 +17,9 @@ class ServiceCustomerOrderController extends ApiController
         parent::__construct();
         $this->middleware('transform.input:'.OrderTransformer::class)->only(['store']);
         $this->middleware('scope:purchase-service')->only(['store']);
-        $this->middleware('auth:api')->except(['index']);
+       // $this->middleware('auth:api')->except(['index']);
+        $this->middleware('can:purchase,customer')->only(['store']);
+
     }
     /**
      * Store a newly created resource in storage.
