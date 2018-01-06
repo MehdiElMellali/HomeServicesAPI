@@ -21,6 +21,7 @@ class CustomerController extends ApiController
      */
     public function index()
     {
+        $this->allowedAdminAction();
         $customers = Customer::has('orders')->get();
         return $this->showAll($customers);
    //     return response()->json(['data' => $customers],200);

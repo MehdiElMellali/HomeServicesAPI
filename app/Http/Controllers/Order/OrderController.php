@@ -12,6 +12,7 @@ class OrderController extends ApiController
     public function __construct(){
         parent::__construct();
         $this->middleware('scope:read-general')->only(['show']);
+        $this->middleware('can:view,order')->only(['show']);
     }
 
     /**
@@ -21,6 +22,7 @@ class OrderController extends ApiController
      */
     public function index()
     {
+        $this->allowedAdminAction();
                $service = Order::all();
         return $this->showAll($service);
     }
