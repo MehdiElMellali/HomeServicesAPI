@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Exceptions;
 use Exception;
 use App\Traits\ApiResponser;
@@ -25,7 +24,6 @@ class Handler extends ExceptionHandler
     protected $dontReport = [
         //
     ];
-
     /**
      * A list of the inputs that are never flashed for validation exceptions.
      *
@@ -35,7 +33,6 @@ class Handler extends ExceptionHandler
         'password',
         'password_confirmation',
     ];
-
     /**
      * Report or log an exception.
      *
@@ -48,7 +45,6 @@ class Handler extends ExceptionHandler
     {
         parent::report($exception);
     }
-
     /**
      * Render an exception into an HTTP response.
      *
@@ -97,34 +93,22 @@ class Handler extends ExceptionHandler
             }
             
         }
-<<<<<<< HEAD
-=======
         if($exception instanceof TokenMismatchException){
             return redirect()->back()->withInput($request->input());
         }
-
->>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
         if(config('app.debug'))
         {
         return parent::render($request, $exception);
         }
         return $this->errorResponse('Unexpected exception, Try later',500); 
     }
-
     protected function unauthenticated($request, AuthenticationException $exception)
     {
-<<<<<<< HEAD
-=======
         if ($this->isFrontend($request)) {
             return redirect()->guest('login');
         }
->>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
         return $this->errorResponse('Unauthenticated',401);
     }
-
-
-
-
     /**
      * Create a response object from the given validation exception.
      *
@@ -135,12 +119,6 @@ class Handler extends ExceptionHandler
     protected function convertValidationExceptionToResponse(ValidationException $e, $request)
     {
         $errors = $e->validator->errors()->getMessages();
-<<<<<<< HEAD
-
-        return $this->errorResponse($errors,422);
-    }
-
-=======
             if ($this->isFrontend($request)) {
              return $request->ajax() ? response()->json($error,422) : redirect()
              ->back()
@@ -149,11 +127,7 @@ class Handler extends ExceptionHandler
             }
         return $this->errorResponse($errors,422);
     }
-
     private function isFrontend($request){
-
         return $request->acceptsHtml() && collect($request->route()->middleware())->contains('web');
     }
-
->>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
 }

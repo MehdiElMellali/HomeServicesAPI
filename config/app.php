@@ -13,11 +13,11 @@ return [
     |
     */
 
-<<<<<<< HEAD
+
     'name' => env('APP_NAME', 'Laravel'),
-=======
+
     'name' => env('APP_NAME', 'Home Services'),
->>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
+
 
     /*
     |--------------------------------------------------------------------------
@@ -171,11 +171,11 @@ return [
         /*
          * Package Service Providers...
          */
-<<<<<<< HEAD
 
-=======
+
+
         Spatie\Fractal\FractalServiceProvider::class,
->>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
+
         /*
          * Application Service Providers...
          */

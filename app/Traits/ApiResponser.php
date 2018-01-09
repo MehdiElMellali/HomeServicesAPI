@@ -1,39 +1,22 @@
 <?php
-
 namespace App\Traits;
-
 use Illuminate\Support\Collection;
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Model;
-=======
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Pagination\LengthAwarePaginator;
->>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
-
 trait ApiResponser
 {
     private function successResponse($data,$code)
     {
         return response()->json($data,$code);
     }
-
     protected function errorResponse($message,$code)
     {
         return response()->json(['error' => $message, 'code'=>$code],$code);
     }
-
     protected function showAll(Collection $collection,$code = 200)
     {
-<<<<<<< HEAD
-        return $this->successResponse(['data'=> $collection],$code);
-    }
-
-    protected function showOne(Model $model,$code = 200)
-    {
-        return $this->successResponse(['data'=> $model],$code);
-=======
         if ($collection->isEmpty()) {
 			return $this->successResponse(['data' => $collection], $code);
 		}
@@ -48,21 +31,16 @@ trait ApiResponser
 	
 		return $this->successResponse($collection, $code);
     }
-
     protected function showOne(Model $instance,$code = 200)
     {
         $transformer = $instance->transformer;
 		$instance = $this->transformData($instance, $transformer);
 		return $this->successResponse($instance, $code);
->>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
     }
     protected function showMessage($message,$code = 200)
     {
         return $this->successResponse(['data'=> $message],$code);
     }
-<<<<<<< HEAD
-=======
-
     protected function sortBy(Collection $collection,$transformer)
     {
         if (request()->has('sort_by')) {
@@ -76,7 +54,6 @@ trait ApiResponser
     {
         foreach(request()->query() as $query => $value){
             $attribute = $transformer::originalAttribute($query);
-
             if (isset($attribute,$value)) {
                 $collection = $collection->where($attribute,$value);
             }
@@ -89,24 +66,19 @@ trait ApiResponser
         $rules = [
             'per_page' => 'integer|min:2|max:50'
         ];
-
         Validator::validate(request()->all(),$rules);
         $page = LengthAwarePaginator::resolveCurrentPage();
         $perPage = 15;
-
         if(request()->has('per_page')){
             $perPage = (int) request()->per_page;
         }
        $results = $collection->slice(($page -1) * $perPage,$perPage)->values();
-
        $paginated = new LengthAwarePaginator($results,$collection->count(),$perPage,$page,[
             'path' => LengthAwarePaginator::resolveCurrentPath(),
        ]);
-
         $paginated->appends(request()->all()); 
 		return $paginated ;
     }
-
     protected function transformData($data, $transformer)
 	{
 		$transformation = fractal($data, new $transformer);
@@ -123,5 +95,4 @@ trait ApiResponser
             return $data;
         });
 	}
->>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
 }

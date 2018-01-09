@@ -11,7 +11,7 @@
 |
 */
 
-<<<<<<< HEAD
+
 Route::get('/', function () {
     return view('Home');
 });
@@ -23,7 +23,7 @@ Route::view('/paver_walkways','paver_walkways');
 Route::view('/solar_systems','solar_systems');
 Route::view('/contact','contact');
 
-=======
+
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -46,4 +46,4 @@ Route::get('/', function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
->>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
+
