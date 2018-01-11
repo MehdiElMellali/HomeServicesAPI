@@ -13,7 +13,7 @@
 
 
 Route::get('/', function () {
-    return view('Home');
+    return view('contact');
 });
 Route::view('/services','services');
 Route::view('/interior_renovation','interior_renovation');
@@ -39,10 +39,9 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 
-
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('guest');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->middleware('guest');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
