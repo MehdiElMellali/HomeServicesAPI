@@ -27,6 +27,10 @@ class ServiceCustomerOrderController extends ApiController
     public function __construct(){
         parent::__construct();
         $this->middleware('transform.input:'.OrderTransformer::class)->only(['store']);
+        $this->middleware('scope:purchase-service')->only(['store']);
+       // $this->middleware('auth:api')->except(['index']);
+        $this->middleware('can:purchase,customer')->only(['store']);
+
     }
 >>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
     /**

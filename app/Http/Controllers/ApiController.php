@@ -14,7 +14,7 @@ class ApiController extends Controller
 =======
 
     public function __construct(){
-    
+        $this->middleware('auth:api');
     }
 >>>>>>> 7ace0be922ec9249808da2097bb05881cdec7a8b
 }
