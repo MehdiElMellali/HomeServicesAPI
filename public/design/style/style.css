@@ -28,11 +28,11 @@ a:hover
 }
 a img
 {
-	display: block;
+	display: block !important;
 	transition: opacity 0.3s ease 0s;
 	opacity: 1;
-	max-width: 100%;
-	height: auto;
+	max-width: 100% !important;
+	height: auto !important;
 }
 a:hover img
 {

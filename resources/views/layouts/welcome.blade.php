@@ -1,11 +1,17 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Home service</title>
-         @yield('header')
-		 
+<title>{{ config('app.name', 'Home service') }}</title>
+
+<!-- Styles -->
+
+@yield('header')
+
+		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="design/rs-plugin/css/settings.css" media="screen" />
 		<!--style-->
 		<link href='//fonts.googleapis.com/css?family=Raleway:100,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
@@ -27,7 +33,8 @@
        
     </head>
     <body>
-        <div class="site-container">
+	<div id="app">
+        <div class="site-container" >
 <div class="header-top-bar-container clearfix">
 				<div class="header-top-bar">
 					<ul class="contact-details clearfix">
@@ -99,12 +106,12 @@
 										</ul>
 									</li>
 									<li>
-										<a href="{{ url('services') }}" title="Services">
+										<a href="{{ url('service') }}" title="Services">
 											SERVICES
 										</a>
 										<ul>
 											<li>
-												<a href="{{ url('interior_renovation') }}" title="Interior Renovation">
+												<a href="{{ url('interior-renovation') }}" title="Interior Renovation">
 													Interior Renovation
 												</a>
 											</li>
@@ -611,9 +618,13 @@
 				</div>
 			</div>
         </div>
-		
-        <!--js-->
-		<script type="text/javascript" src="design/js/jquery-1.12.4.min.js"></script>
+	
+       
+@yield('footer')
+</div>
+<script src="{{ asset('js/app.js') }}"></script>
+ <!--js-->
+ <script type="text/javascript" src="design/js/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="design/js/jquery-migrate-1.4.1.min.js"></script>
 		<!--slider revolution-->
 		<script type="text/javascript" src="design/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
@@ -642,6 +653,5 @@
 <script type="text/javascript" src="design/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
 <script type="text/javascript" src="design/rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
 <script type="text/javascript" src="design/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
-@yield('footer')
     </body>
 </html>

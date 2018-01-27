@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         Review::truncate();
 
         $userQunatity = 200;
-        $serviceQunatity = 30;
+        $serviceQunatity = 10;
         $orderQunatity = 100;
         $reviewQunatity = 200;
 

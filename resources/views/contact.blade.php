@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div class="site-container">
-			
+			<example></example>
 			<div class="theme-page padding-bottom-66">
 				<div class="clearfix">
 					<div class="row page-margin-top">

@@ -3,6 +3,7 @@
 namespace App\Http;
 
 
+
 use App\Http\Middleware\TransformInput;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -65,8 +66,7 @@ class Kernel extends HttpKernel
         'scope' => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class,
         'scopes' => \Laravel\Passport\Http\Middleware\CheckScopes::class,
         'signature' => \App\Http\Middleware\SignatureMiddleware::class,
-
-
+        'admin' => \App\Http\Middleware\Admin::class,
         'transform.input' => \App\Http\Middleware\TransformInput::class,
 
     ];
