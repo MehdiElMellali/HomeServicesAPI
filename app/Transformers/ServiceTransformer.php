@@ -17,8 +17,8 @@ class ServiceTransformer extends TransformerAbstract
         return [
             'identifier' => (int)$service->id,
             'name' => (String)$service->title,
-            'details' => (String)$service->description,
-            'photo' => (String)$service->images,
+            'description' => (String)$service->description,
+            'images' => (String)$service->images,
             'creationDate' => (String)$service->created_at,
             'lastChange' => (String)$service->updated_at,
             'deletedDate' => isset($service->deleted_at) ? (string) $service->deleted_at : null,
@@ -49,8 +49,8 @@ class ServiceTransformer extends TransformerAbstract
         $attributes = [
             'identifier' => 'id',
             'name' => 'title',
-            'description' => 'details',
-            'photo' => 'images',
+            'description' => 'description',
+            'images' => 'images',
             'creationDate' => 'created_at',
             'lastChange' => 'updated_at',
             'deletedDate' => 'deleted_at'
@@ -64,8 +64,8 @@ class ServiceTransformer extends TransformerAbstract
         $attributes = [
             'id' => 'identifier',
             'title' => 'name',
-            'description' => 'details',
-            'images' => 'photo',
+            'description' => 'description',
+            'images' => 'images',
             'created_at' => 'creationDate',
             'updated_at' => 'lastChange',
             'deleted_at' => 'deletedDate',

@@ -43293,7 +43293,7 @@ var render = function() {
         return _c("li", [
           _c("a", { attrs: { href: "#", title: "" } }, [
             _c("img", {
-              attrs: { src: "http://homes.test/img/" + service.photo, alt: "" }
+              attrs: { src: "http://homes.test/img/" + service.images, alt: "" }
             })
           ]),
           _vm._v(" "),
@@ -43310,7 +43310,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(service.details))])
+          _c("p", [_vm._v(_vm._s(service.description))])
         ])
       })
     )

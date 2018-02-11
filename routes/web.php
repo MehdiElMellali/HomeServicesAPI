@@ -50,17 +50,15 @@ Route::get('/home/my-clients', 'HomeController@getClients')->name('personal-clie
 Route::get('/home/authorized-clients', 'HomeController@getAuthorizedClients')->name('authorized-clients');
 Route::get('/interior-renovation', 'HomeController@serviceInt')->name('interior-renovation');
 
+//admin
 
-
-Route::group(['perfix'=> 'admin','middleware'=>['auth','admin']],function ()
+Route::group(['prefix'=> 'admin','middleware'=>['auth','admin']],function ()
 {
-
-//admin 
-
-Route::view('/admin/home/','admin.home.home');
-//admin.service
-Route::view('/admin/services/addService','admin.services.addService');
-
+    //admin.service
+   // Route::resource('/adminServices','Service\WebServiceController');
+    Route::resource('/home','Service\WebServiceController');
+    Route::resource('/','Service\WebServiceController');
+    Route::resource('services','Service\WebServiceController');
 });
 //logout 
 Route::get('/logout','Auth\LoginController@logout');

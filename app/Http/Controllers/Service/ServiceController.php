@@ -14,8 +14,8 @@ class ServiceController extends ApiController
 
     public function __construct(){
         //parent::__construct();
-       //$this->middleware('client.credentials')->only(['index','show']);
-       $this->middleware('auth:api')->except(['index','show']);
+        //$this->middleware('client.credentials')->only(['index','show']);
+        //$this->middleware('auth:api')->except(['index','show']);
         $this->middleware('transform.input:'.ServiceTransformer::class)->only(['store','update']);
       //  $this->middleware('scope:manage-service');
 
@@ -50,19 +50,23 @@ class ServiceController extends ApiController
      */
     public function store(Request $request)
     {
+        //dd('cc');
+
         $rules = [
             'title' => 'required',
             'description' => 'required',
             'images' => 'required',
         ];
+        //dd($request);
 
         $this->validate($request,$rules);
         $data =  $request->all();
+       // dd($data);
         $data['images'] = $request->images->store('');
 
         $service = Service::create($data);
 
-        return $this->showOne($service);
+       // return $this->showOne($service);
     }
      /**
       *  Update the specified resource in storage.

@@ -4,10 +4,10 @@
             <ul class="services-list clearfix padding-top-70"> 
                 <li v-for="service in services">
                     <a href="#" title="">
-                        <img v-bind:src="'http://homes.test/img/'+service.photo" alt="">
+                        <img v-bind:src="'http://homes.test/img/'+service.images" alt="">
                     </a>
                     <h4 class="box-header"><a href="service_interior_renovation.html" title="Interior Renovation">{{ service.name }}</a></h4>
-                    <p>{{ service.details }}</p>
+                    <p>{{ service.description }}</p>
                 </li>
                 </ul>
         </div>

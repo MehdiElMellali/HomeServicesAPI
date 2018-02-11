@@ -24,6 +24,7 @@ Route::resource('customers.orders', 'Customer\CustomerOrderController',['only' =
  * Services
  */
 Route::resource('services', 'Service\ServiceController',['except' =>['create','edit']]);
+//Route::resource('services', 'Service\ServiceController',['only' =>['index','show']]);
 Route::resource('services.orders', 'Service\ServiceOrderController',['only' =>['index']]);
 Route::resource('services.customers', 'Service\ServiceCustomerController',['only' =>['index']]);
 Route::resource('services.customers.orders', 'Service\ServiceCustomerOrderController',['only' =>['store']]);
