@@ -1,7 +1,7 @@
 <?php
-namespace  App\Application\Repository\Eloquent;
+namespace  App\Repositories;
 
-use App\Application\Model\Group;
+
 use Illuminate\Database\Eloquent\Model;
 
 abstract class AbstractEloquent{

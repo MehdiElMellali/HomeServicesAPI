@@ -3,20 +3,25 @@
 namespace App\Http\Controllers\service;
 
 
-use App\Repositories\Services\ServiceRepository;
+use App\Http\Controllers\WebAbstractController;
+use App\Http\Requests\Service\ServiceStore;
+use App\Repositories\Services\ServiceInterface;
 use App\Service;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class WebServiceController extends Controller
+class WebServiceController extends WebAbstractController
 {
+    use ValidatesRequests;
 
-    private $service;
+    protected $service;
 
-    public function __construct(ServiceRepository $service)
+    public function __construct(Service $model ,ServiceInterface $service)
     {
+        parent::__construct($model);
         $this->service = $service;
     }
+
 
     /**
      * Display a listing of the resource.
@@ -50,34 +55,15 @@ class WebServiceController extends Controller
         $rules = [
             'title' => 'required',
             'description' => 'required',
-            'images' => 'mimes:png,jpg,jpeg|max:30000',
+            'images' => 'required',
+            'image' => 'required'
         ];
-        //dd($request);
-       // $data =  $request->all();
-  
-        $formInput=$request->except('images');
-
-        $image=$request->images;
-        if($image)
-        {
-
-            $random = rand(0, 999999);
-
-            $imageName=$image->getClientOriginalName();
-            $image->move('img',$random . "_" .  date("d-m-Y") ."_".$imageName);
-            $formInput['images']=$random . "_" .  date("d-m-Y") ."_".$imageName;
-          //  dd($formInput);
-
-
-        }
-       $this->validate($request,$rules);
-       //dd($formInput);
-       // dd($data);
-
-
-        Service::create($formInput);
-
-        return redirect()->route('home');
+      //  dd($request);
+        $this->validate($request,$rules);
+        $data = $this->uploadFile($request,'images');
+        $datas = $this->uploadFile($request,'image');
+        $item =  $this->service->saveOrUpdate($datas , null);
+        return redirect()->route('services.index');
     }
 
     /**
@@ -112,7 +98,11 @@ class WebServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       // $item =  $this->storeOrUpdate($request , $id , true);
+      //  dd($request);
+
+        $item =  $this->service->saveOrUpdate($request , $id);
+        return redirect()->route('services.index');
     }
 
     /**
@@ -123,6 +113,9 @@ class WebServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item =  $this->service->delete($id);
+        return redirect()->route('services.index');
     }
+
+
 }

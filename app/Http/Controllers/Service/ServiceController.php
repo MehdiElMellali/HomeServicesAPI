@@ -79,13 +79,10 @@ class ServiceController extends ApiController
     {
              // dd($service->title);
         if ($request->hasFile('images')) {
-          
               Storage::delete($service->images);
              $service->images = $request->images->store('');
- 
         }
        $service->update();
-
         return $this->showOne($service);
     }
       /**

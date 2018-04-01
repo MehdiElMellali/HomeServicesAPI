@@ -8,7 +8,7 @@
         <div class="row full-width padding-top-bottom-50 vertical-align-cell">
             <div class="row">
                 <div class="page-header-left">
-                    <h1>DESIGN AND BUILD</h1>
+                    <h1>{{$service->title}}</h1>
                 </div>
                 <div class="page-header-right">
                     <div class="bread-crumb-container">
@@ -89,26 +89,24 @@
             </div>
             <div class="column column-3-4">
                 <div class="row">
-                    <div class="column column-1-2">
-                        <a href="{{Request::root()}}/design/images/samples/750x500/image_02.jpg" class="prettyPhoto re-preload" title="Interior Renovation">
-                            <img src='{{Request::root()}}/design/images/samples/480x320/image_02.jpg' alt='img'>
+                    @if(is_array(json_decode($service->images)))
+
+                  @forelse(json_decode($service->images) as $img)
+                            <div class="column column-1-2">
+                                <a href="{{url('img',$img)}}" class="prettyPhoto re-preload" title="Interior Renovation">
+                                    <img src="{{url('img',$img)}}" alt='img'>
                         </a>
                     </div>
-                    <div class="column column-1-2">
-                        <a href="{{Request::root()}}/design/images/samples/750x500/image_06.jpg" class="prettyPhoto re-preload" title="Interior Renovation">
-                            <img src='{{Request::root()}}/design/images/samples/480x320/image_06.jpg' alt='img'>
-                        </a>
-                    </div>
+                    @empty
+                                    <h1>Not Images  </h1>
+
+                    @endforelse
+                    @endif
                 </div>
                 <div class="row page-margin-top">
                     <div class="column-1-1">
                         <h3 class="box-header">SERVICE OVERVIEW</h3>
-                        <p class="description t1">When it comes to choosing a renovator to transfor the interior of your home, quality and trust should never be compromised.
-                        Working with a professional is an absolute must. With over 15 years experience and a real focus on customer satisfaction, you can rely
-                        on us for your next renovation, driveway sett on home repair. Our installations are carried out by fully trained staff to the highest
-                        professional standards. Always on time and on budget.</p>
-                        <p class="description t1">Renovate has proven results for setting exceptional standards in cost control, planning, scheduling and project safety. We have
-                        experience that gives us a competitive advantage over others in our field.</p>
+                        {!! $service->description!!}
                         <h3 class="box-header page-margin-top">PLAN AND DETAILS</h3>
                         <table class="margin-top-40">
                             <tbody>
@@ -135,6 +133,9 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="row yellow full-width padding-top-bottom-30 align-center">
+                        <a class="more" href="services.html" title="VIEW ALL SERVICES">Demeande ce service</a>
                 </div>
                 <div class="row page-margin-top padding-bottom-70">
                     <div class="column column-1-2">

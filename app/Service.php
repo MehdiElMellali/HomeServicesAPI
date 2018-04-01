@@ -14,8 +14,8 @@ class Service extends Model
 
     protected $dates = ['deleted_at'];
     public $transformer = ServiceTransformer::class;
-	protected $fillable = [
-        'title','description','images'
+	protected $fillable  = [
+        'title','description','images','image'
     ];
 	
     public function orders()

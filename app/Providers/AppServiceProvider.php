@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 
+
 use App\Repositories\Services\EloquentService;
-use App\Repositories\Services\ServiceRepository;
+use App\Repositories\Services\ServiceInterface;
 use App\User;
 use App\Mail\userCreated;
 use App\Mail\UserMailChanged;
@@ -44,6 +45,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(ServiceRepository::class, EloquentService::class);
+
     }
 }

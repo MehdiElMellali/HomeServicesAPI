@@ -70,9 +70,16 @@
                                         <span class="label label-primary">Enable</span>
                                     </td>
                                     <td class="text-right">
+                                        <form class="" action="{{route('services.destroy',$service->id)}}" method="post">
+                                            <input type="hidden" name="_method" value="delete">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <div class="btn-group">
                                             <a href="{{route('services.edit',$service->id)}}"  class="btn-white btn btn-xs">Edit</a>
                                         </div>
+                                            <div class="btn-group">
+                                                <input type="submit" class="btn-red btn btn-xs" onclick="return confirm('Are you sure to delete this data');" name="name" value="delete">
+                                        </div>
+                                        </form>
                                     </td>
                                 </tr>
                             @empty

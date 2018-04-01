@@ -59,7 +59,7 @@ trait MainProcessTrait {
         return $new;
     }
     public function updateItem($array , $item , $callback , $id){
-        $encodeArray = transformArray($array);
+        $encodeArray = $array;
         $update = $item->update($encodeArray);
         if($this->model->getTable() != 'logs') {
             $this->createLog('Update', 'Success', json_encode(['Updated id' => [$id]]));

@@ -4,15 +4,17 @@
 
 namespace App\Repositories\Services;
 
-interface ServiceRepository
+interface ServiceInterface
 {
     function getAll();
 
     function getById($id);
 
-    function create(array $attributes);
+    function saveOrUpdate($request , $id = null);
 
     function update($id, array $attributes);
 
     function delete($id);
+
+   // function createOrUpdate($array , $id = null);
 }

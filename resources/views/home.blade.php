@@ -107,19 +107,36 @@
 						<div class="row">
 							<h2 class="box-header">OUR SERVICES</h2>
 							<p class="description align-center">With over 15 years experience and real focus on customer satisfaction, you can rely on us for your next renovation,<br>driveway sett or home repair. We provide a professional service for private and commercial customers.</p>
-					
-                            <services></services>
+
+
+							<ul class="services-list clearfix page-margin-top">
+										@forelse($services as $service)
+										<li>
+											<a href="{{route('service',$service->id)}}" title="">
+													<img src="{{url('img',$service->image)}}" alt="">
+											</a>
+											<h4 class="box-header"><a href="{{route('service',$service->id)}}" title="{{ $service->title }}">{{ $service->title }}</a></h4>
+											<p>{!! $service->description  !!} </p>
+
+										</li>
+										@empty
+											<h1>Not Service</h1>
+										@endforelse
+									</ul>
+
+
 							
 							<div class="align-center margin-top-67 padding-bottom-87">
 								<a class="more" href="services.html" title="VIEW ALL SERVICES">VIEW ALL SERVICES</a>
 							</div>
 						</div>
 					</div>
+
 					<div class="row full-width page-margin-top-section">
 						<div class="row">
 							<h2 class="box-header">RECENT PROJECTS</h2>
 							<p class="description align-center">Here are a few of many projects we have completed for our customers. We provide a professional service<br>which includes consultation, free estimate, design, supply of materials and installation.</p>
-						</div>	
+						</div>	s
 						<ul class="projects-list clearfix page-margin-top">
 							<li>
 								<a href="project_design_build.html" title="Design and Build">

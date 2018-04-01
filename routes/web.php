@@ -12,9 +12,7 @@
 */
 
 
-Route::get('/', function () {
-    return view('home');
-});
+
 Route::view('/service','services');
 //Route::view('/interior_renovation','interior_renovation');
 Route::view('/design_build','design_build');
@@ -44,11 +42,26 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 // })->middleware('guest');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/my-tokens', 'HomeController@getTokens')->name('personal-tokens');
-Route::get('/home/my-clients', 'HomeController@getClients')->name('personal-clients');
-Route::get('/home/authorized-clients', 'HomeController@getAuthorizedClients')->name('authorized-clients');
-Route::get('/interior-renovation', 'HomeController@serviceInt')->name('interior-renovation');
+//Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home/my-tokens', 'HomeController@getTokens')->name('personal-tokens');
+//Route::get('/home/my-clients', 'HomeController@getClients')->name('personal-clients');
+//Route::get('/home/authorized-clients', 'HomeController@getAuthorizedClients')->name('authorized-clients');
+//Route::get('/interior-renovation', 'HomeController@serviceInt')->name('interior-renovation');
+
+
+//front
+
+Route::get('home', 'Service\FrontServiceController@Services')->name('Home');
+Route::get('/', 'Service\FrontServiceController@Services')->name('Home');
+Route::get('service-{id}', 'Service\FrontServiceController@Service')->name('service');
+
+
+
+
+
+
+
+
 
 //admin
 
